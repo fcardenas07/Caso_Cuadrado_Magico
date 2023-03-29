@@ -3,6 +3,11 @@ import java.util.Arrays;
 public class CuadradoMagico {
     public static void main(String[] args) {
         int[][] cuadrado = new int[3][3];
+//        int[][] cuadrado = {
+//                {2, 9, 4},
+//                {7, 5, 3},
+//                {6, 1, 8}
+//        };
 
         int intentos = 0;
         do {
@@ -30,7 +35,7 @@ public class CuadradoMagico {
     private static boolean diagonal2Suma15(int[][] cuadrado) {
         int sumaDiagonal = 0;
         for (int i = 0; i < cuadrado.length; i++) {
-            sumaDiagonal = cuadrado[i][2 - i];
+            sumaDiagonal += cuadrado[i][2 - i];
         }
         return sumaDiagonal == 15;
     }
@@ -46,8 +51,8 @@ public class CuadradoMagico {
     private static boolean columnasSuman15(int[][] cuadrado) {
         for (int i = 0; i < cuadrado.length; i++) {
             int sumaColumna = 0;
-            for (int j = 0; j < cuadrado[i].length; j++) {
-                sumaColumna = cuadrado[j][i];
+            for (int[] columna : cuadrado) {
+                sumaColumna += columna[i];
             }
             if (sumaColumna != 15) return false;
         }
